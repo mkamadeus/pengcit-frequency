@@ -1,4 +1,4 @@
-function [img] = freq2spatial(freq) {
-	img = ifft2(freq);
+function [img] = freq2spatial(freq)
+	img = real(ifft2(freq));
 	img = uint8(img);
-}
+end
