@@ -1,5 +1,5 @@
 function [kernel] = ilpf(cutoff, kernelsize)
-	[m, n] = num2cell(int64(kernelsize)){:};
+	[m, n] = kernelsize{:};
 	kernel = fdistmatrix(kernelsize);
 
 	for i = 1:m

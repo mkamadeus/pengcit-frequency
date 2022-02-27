@@ -1,4 +1,3 @@
-z = glpf(20, [256 256]);
-z = peaks(z);
-figure;
-surf(z);
+I = truecolorload("./images/lena.bmp");
+f = lowpass(I(:,:,1), glpf(25, {512, 512}));
+imshow(f, [])

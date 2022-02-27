@@ -1,13 +1,19 @@
 function [kernel] = fdistmatrix(kernelsize)
-	[m, n] = num2cell(int64(kernelsize)){:};
-	[mcenter, ncenter] = num2cell(double(kernelsize+1)/2){:};
+    [m, n] = kernelsize{:};
 
-	duv = double(zeros(m, n));
-	for i = 1:m
-		for j = 1:n
-			duv(i, j) = sqrt(sum(([i j]-[mcenter ncenter]).^2));
-		end
-	end
+    % Generate values from 0 to size
+    u = 0:(m-1);
+    v = 0:(n-1);
 
-	kernel = duv;
+    % Offset values by half
+    idx = find(u > m/2);
+    u(idx) = u(idx) - m;
+    idy = find(v > n/2);
+    v(idy) = v(idy) - n;
+
+    % Generate matrix of "distance from corner"
+    [U, V] = meshgrid(u, v);
+    D = sqrt(U.^2 + V.^2);
+
+	kernel = D;
 end
