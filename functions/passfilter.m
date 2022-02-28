@@ -1,4 +1,4 @@
-function filtered = lowpass(img, kernel)
+function filtered = passfilter(img, kernel)
 	[m,n] = size(img);
 
 	% pad image

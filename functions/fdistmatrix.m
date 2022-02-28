@@ -12,7 +12,7 @@ function [kernel] = fdistmatrix(kernelsize)
     v(idy) = v(idy) - n;
 
     % Generate matrix of "distance from corner"
-    [U, V] = meshgrid(u, v);
+    [V, U] = meshgrid(v, u);
     D = sqrt(U.^2 + V.^2);
 
 	kernel = D;
