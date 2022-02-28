@@ -1,3 +1,3 @@
-I = truecolorload("./images/lena.bmp");
-f = lowpass(I(:,:,1), glpf(25, {512, 512}));
-imshow(f, [])
+I = truecolorload("./images/Lena.bmp");
+noised = makeperiodicnoise(I, 1/5, 1/5);
+imshow(noised)

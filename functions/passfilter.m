@@ -13,8 +13,9 @@ function filtered = passfilter(img, kernel)
 	% convert to spatial domain
 	ifimg = freq2spatial(filtered);
 
-    % unpad image
-    unpaddedimg = ifimg(1:m, 1:n);
+	% unpad image
+	unpaddedimg = ifimg(1:m, 1:n);
 
+	% return result image
 	filtered = unpaddedimg;
 end
