@@ -1,5 +1,4 @@
 function [kernel] = ilpf(cutoff, kernelsize)
-	kernel = fdistmatrix(kernelsize);
-
-	kernel = double(kernel <= cutoff);
+    kernel = fdistmatrix(kernelsize);
+    kernel = double(kernel <= cutoff);
 end

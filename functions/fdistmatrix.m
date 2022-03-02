@@ -15,5 +15,5 @@ function [kernel] = fdistmatrix(kernelsize)
     [V, U] = meshgrid(v, u);
     D = sqrt(U.^2 + V.^2);
 
-	kernel = D;
+    kernel = D;
 end

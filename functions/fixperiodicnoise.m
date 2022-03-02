@@ -1,4 +1,4 @@
-function res = fixperiodicnoise(img)
-	fimg = spatial2freq(img);
-	
+function res = fixperiodicnoise(img, ranges)
+    fimg = spatial2freq(img);
+    
 end
