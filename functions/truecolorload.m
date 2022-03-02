@@ -5,7 +5,6 @@ function [I, originalMode] = truecolorload(filename)
     %   Detailed explanation goes here
 
     [I, map] = imread(filename);
-    disp([size(I) ~isempty(map)]);
 
     % Convert [0 1] to [0 255] if necessary
     if ~isinteger(I) && max(I) <= 1
@@ -22,7 +21,6 @@ function [I, originalMode] = truecolorload(filename)
     if ~isempty(map)
         I = ind2rgb(I, map);
         originalMode = 'color';
-        disp(max(I(:)))
 
          % Convert [0 1] to [0 255] if necessary
         if ~isinteger(I) && max(I(:)) <= 1
@@ -36,6 +34,4 @@ function [I, originalMode] = truecolorload(filename)
     originalMode = 'grayscale';
     I(:,:,2) = I(:,:,1);
     I(:,:,3) = I(:,:,1);
-
-    disp(I(1, 1:5, 1))
 end
