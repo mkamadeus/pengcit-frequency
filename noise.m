@@ -21,7 +21,7 @@ xticks([0:8:s(1)])
 yticks([0:8:s(2)])
 
 subplot(3,2,5);
-noisedfixed = fixperiodicnoise(noised, {246:250 262:266}, {246:250 262:266});
+noisedfixed = fixperiodicnoise(noised, {0:250 256:272}, {0:250 256:272});
 imshow(noisedfixed, []);title("fixed noised");
 
 subplot(3,2,6);
