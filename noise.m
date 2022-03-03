@@ -6,9 +6,7 @@ imshow(img, []);title("original");
 
 subplot(3,2,2);
 [fimg, shiftedfimg] = spatial2freq(img);
-% disp(fimg);
-% disp(shiftedfimg);
-imshow(im2double(shiftedfimg), []);title("og spectrum");
+imagesc(100*shiftedfimg);colormap(gray);title("og spectrum");
 
 subplot(3,2,3);
 noised = makeperiodicnoise(img, 1/10, 1/10);
@@ -16,8 +14,20 @@ imshow(noised, []);title("noised og");
 
 subplot(3,2,4);
 [fnoised, shiftedfnoised] = spatial2freq(noised);
-s = size(shiftedfnoised)
-imshow(im2double(shiftedfnoised), []);title("noised og spectrum");
+s = size(shiftedfnoised);
+imagesc(shiftedfnoised);colormap(gray);title("og spectrum");
+axis on
+xticks([0:8:s(1)])
+yticks([0:8:s(2)])
 
-disp(im2double(shiftedfnoised(s(1)/2 - 50:s(1)/2, s(2)/2-50:s(2)/2)));
-disp(sort(shiftedfnoised(:)));
+subplot(3,2,5);
+noisedfixed = fixperiodicnoise(noised, {0:250 256:272}, {0:250 256:272});
+imshow(noisedfixed, []);title("fixed noised");
+
+subplot(3,2,6);
+[fnoisedfixed, shiftedfnoisedfixed] = spatial2freq(noisedfixed);
+s = size(shiftedfnoisedfixed);
+imagesc(shiftedfnoisedfixed);title("fixed noised og spectrum");
+axis on
+xticks([0:8:s(1)])
+yticks([0:8:s(2)])
